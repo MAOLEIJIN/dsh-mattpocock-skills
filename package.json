@@ -1,0 +1,68 @@
+{
+  "name": "dsh-mattpocock-skills",
+  "version": "1.2.3",
+  "private": true,
+  "description": "Matt Pocock's agent skills (mattpocock/skills 1.2.3) as a self-contained DeepSeek Harness plugin: the full 35-skill set ships inside the package and is registered on ctx.skills by a read-only provider, so the set installs, updates and uninstalls as one plugin instead of 35 loose copies.",
+  "license": "MIT",
+  "author": {
+    "name": "Matt Pocock",
+    "url": "https://www.aihero.dev"
+  },
+  "contributors": [
+    "Packaged for DeepSeek Harness by the DSH web profile"
+  ],
+  "homepage": "https://github.com/mattpocock/skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattpocock/skills.git"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "skill",
+    "skills",
+    "agent-skills",
+    "mattpocock"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "skills",
+    "overlay",
+    "vendor",
+    "tools",
+    "test",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "yaml": "^2.4.2"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1 || ^4.0.2",
+    "@deepseek-ai/dsh-skill": ">=0.1.0-rc.7 <0.2.0-0 || >=0.1.5-rc.1 <0.2.0-0"
+  },
+  "scripts": {
+    "vendor": "node vendor/vendor-skills.mjs",
+    "check": "node vendor/vendor-skills.mjs --check && node vendor/gen-slash-rules.mjs --check",
+    "test": "node test/bundle.test.js",
+    "verify:profile": "node test/verify-profile.cjs",
+    "archive:duplicates": "node tools/archive-duplicates.mjs",
+    "overlay:report": "node vendor/overlay-report.mjs",
+    "overlay:gen": "node vendor/gen-slash-rules.mjs"
+  }
+}

@@ -1,0 +1,12 @@
+# dsh-mattpocock-skills bundle patch: inserts the bundled skill provider row
+# into the web profile roster. Applied as a profile bundle layer (the
+# `dsh.bundle.patch` manifest field) over dsh-base; activate with
+# `dsh plugin --profile web add dsh-mattpocock-skills`.
+#
+# The row is a bare plugin by package name: the host half registers a
+# read-only `ctx.skills` provider that serves the vendored mattpocock skill
+# tree from this package, so no skill file needs to be copied into a user root.
+# Optional config keys: enabled, rank, skillRoot, promote.
+- insert:
+    - id: mattpocock-skills
+      name: 'dsh-mattpocock-skills'

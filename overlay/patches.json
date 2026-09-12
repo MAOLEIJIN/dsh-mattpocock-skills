@@ -1,0 +1,627 @@
+{
+  "schema": "dsh-mattpocock-skills/overlay@1",
+  "upstream": {
+    "repository": "https://github.com/mattpocock/skills",
+    "version": "1.2.3"
+  },
+  "$comment": [
+    "DSH adaptation layer. The vendored tree under skills/ stays a byte-for-byte copy of upstream;",
+    "everything in this file is applied in memory by the skill provider, so `vendor-skills.mjs --check`",
+    "can still prove the baseline is pristine. Each rule is an exact literal find/replace plus the",
+    "number of occurrences the rule expects: a count mismatch fails the drift check instead of",
+    "silently half-applying after an upstream reword.",
+    "Why these edits exist: upstream is written for Claude Code, where `/name` is a command the model",
+    "can run. In DSH `/name` is a user-facing slash command, and a skill marked",
+    "`disable-model-invocation: true` cannot be loaded by the model at all, so the routing prose has to",
+    "name skills instead of issuing commands. See skills/dsh-workflow/ for the model-facing contract."
+  ],
+  "rules": [
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "the router is the entry point: teach it DSH's two invocation surfaces before it lists flows",
+      "find": "You don't remember every skill, so ask.",
+      "replace": [
+        "You don't remember every skill, so ask.",
+        "",
+        "**In DSH** this router names skills instead of running them. Load a name below with the `skill` tool whenever that skill is model-invocable; when a name is marked **user-only** in [`dsh-workflow`](../dsh-workflow/SKILL.md), the model cannot load it — say so and let the user invoke it from their own session, so it starts in a fresh context window the way the flow expects."
+      ],
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "context hygiene: /clear and /compact are the harness's controls, not skills",
+      "find": "kick off **`/implement`** per ticket, **`/clear`ing context between each one**.",
+      "replace": "kick off **`implement`** per ticket, **starting a fresh session between each one** (the user starts it; a new session is what keeps each ticket's context disposable).",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "the smart-zone paragraph names /compact as if the model could run it",
+      "find": "don't push on degraded — `/compact` at the nearest phase boundary and carry on (see Phase boundaries).",
+      "replace": "don't push on degraded — ask the user to run `/compact` at the nearest phase boundary, or start a fresh session, and carry on (see Phase boundaries).",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "the move glossary: DSH swaps /clear for a fresh session and keeps /compact",
+      "find": "- **`/clear`** — empty the window, when nothing here matters to what's next.",
+      "replace": "- **fresh session** — empty the window, when nothing here matters to what's next. Only the user can start one; ask for it.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "compaction exists in DSH as /compact, but the user drives it",
+      "find": "- **`/compact`** — compress this context and seed a fresh session with it. The **default**, at the bottom of the tree rather than the first reach.",
+      "replace": "- **`/compact`** — compress this context and seed a fresh session with it (DSH keeps this command; the user runs it). The **default**, at the bottom of the tree rather than the first reach.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "the move table's first row pair",
+      "find": "| **`/clear`** | Empty the context window and start from nothing.                  |",
+      "replace": "| **Fresh session** | Empty the context window and start from nothing. Only the user can start one; ask for it. |",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "step 2 of the boundary tree sends the model to /clear",
+      "find": "If so, **`/clear`**. It is the cheapest move on the board: it takes no time and hands back the whole window. `/clear` also isn't terminal — the old session stays resumable.",
+      "replace": "If so, **start a fresh session**. It is the cheapest move on the board: it takes no time and hands back the whole window. It also isn't terminal — the old session stays resumable, and DSH keeps the previous session in its session list.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "step 5 hands the model a slash command with an instruction argument",
+      "find": "Pass it an instruction (`/compact we're going to QA this area`) so the summary keeps what the next phase needs.",
+      "replace": "Pass it an instruction (`/compact we're going to QA this area`) so the summary keeps what the next phase needs — the user runs the command, so ask for it in those words.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "harness-swap example names two CLIs; DSH is a third",
+      "find": "- swapping to a **new harness** (Claude → Codex),",
+      "replace": "- swapping to a **new harness** (Claude Code → Codex → DSH),",
+      "expect": 1
+    },
+    {
+      "file": "engineering/code-review/SKILL.md",
+      "note": "setup routing: name the skill, not a slash command",
+      "find": "The issue tracker should have been provided to you — run `/setup-matt-pocock-skills` if `docs/agents/issue-tracker.md` is missing.",
+      "replace": "The issue tracker should have been provided to you — if `docs/agents/issue-tracker.md` is missing, tell the user to run the **user-only** `setup-matt-pocock-skills` skill once before this review; do not try to load it yourself.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/to-spec/SKILL.md",
+      "note": "same setup routing as code-review",
+      "find": "The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.",
+      "replace": "The issue tracker and triage label vocabulary should have been provided to you — if not, tell the user to run the **user-only** `setup-matt-pocock-skills` skill once and stop until it has (you cannot load that skill yourself).",
+      "expect": 1
+    },
+    {
+      "file": "engineering/wayfinder/SKILL.md",
+      "note": "same setup routing as code-review",
+      "find": "The issue tracker should have been provided to you — run `/setup-matt-pocock-skills` if not.",
+      "replace": "The issue tracker should have been provided to you — if not, tell the user to run the **user-only** `setup-matt-pocock-skills` skill once and stop until it has (you cannot load that skill yourself).",
+      "expect": 1
+    },
+    {
+      "file": "engineering/wayfinder/SKILL.md",
+      "note": "wayfinder opens with two interviews it cannot run",
+      "find": "Run a `/grilling` and `/domain-modeling` session to pin down what this map is finding its way to",
+      "replace": "Load the `grilling` skill and, alongside it, `domain-modeling`, to pin down what this map is finding its way to",
+      "expect": 1
+    },
+    {
+      "file": "engineering/wayfinder/SKILL.md",
+      "note": "the discussion line repeats the same pairing",
+      "find": "Always invoke the /grilling and /domain-modeling skills.",
+      "replace": "Always load the `grilling` and `domain-modeling` skills.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/wayfinder/SKILL.md",
+      "note": "notes block: invoke-by-name, not by command",
+      "find": "invoke the skills the `## Notes` block names. If in doubt, use `/grilling` and `/domain-modeling`.",
+      "replace": "load the skills the `## Notes` block names. If in doubt, use `grilling` and `domain-modeling`.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/wayfinder/SKILL.md",
+      "note": "the research ticket's resolver is a DSH subagent, not a slash command",
+      "find": "Resolved by a `/research` **subagent**.",
+      "replace": "Resolved by a **subagent** running the `research` skill.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/wayfinder/SKILL.md",
+      "note": "the fan-out instruction should name DSH's delegation tools",
+      "find": "For each `research` ticket you just created, spin up a `/research` subagent to resolve it in parallel",
+      "replace": "For each `research` ticket you just created, spawn a subagent with DSH's `subagent` tool (or a `workflow` fan-out when there are several) to run the `research` skill in parallel",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/SKILL.md",
+      "note": "vocabulary hand-off",
+      "find": "- Run the `/codebase-design` skill for the architecture vocabulary",
+      "replace": "- Load the `codebase-design` skill for the architecture vocabulary",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/SKILL.md",
+      "note": "decision-tree walk",
+      "find": "Once the user picks a candidate, run the `/grilling` skill to walk the decision tree with them",
+      "replace": "Once the user picks a candidate, load the `grilling` skill to walk the decision tree with them",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/SKILL.md",
+      "note": "inline side effect",
+      "find": "run the `/domain-modeling` skill to keep the domain model current as you go",
+      "replace": "load the `domain-modeling` skill to keep the domain model current as you go",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/SKILL.md",
+      "note": "design-it-twice is a parallel sub-agent pattern; DSH spells that with subagent",
+      "find": "Run the `/codebase-design` skill and use its design-it-twice parallel sub-agent pattern.",
+      "replace": "Load the `codebase-design` skill and use its design-it-twice pattern — in DSH that is two `subagent` runs on the same module, reported side by side.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/tdd/SKILL.md",
+      "note": "vocabulary hand-off",
+      "find": "use the `/codebase-design` skill for the vocabulary",
+      "replace": "load the `codebase-design` skill for the vocabulary",
+      "expect": 1
+    },
+    {
+      "file": "engineering/diagnosing-bugs/SKILL.md",
+      "note": "post-mortem hand-off",
+      "find": "off to the `/improve-codebase-architecture` skill with the specifics",
+      "replace": "off to the **user-only** `improve-codebase-architecture` skill with the specifics — name it for the user rather than loading it",
+      "expect": 1
+    },
+    {
+      "file": "engineering/grill-with-docs/SKILL.md",
+      "note": "the entry line: two skills, one of them named as a command",
+      "find": "Run a `/grilling` session, using the `/domain-modeling` skill.",
+      "replace": "Load the `grilling` skill and run the session, using the `domain-modeling` skill as you go.",
+      "expect": 1
+    },
+    {
+      "file": "productivity/grill-me/SKILL.md",
+      "note": "the primitive it reuses",
+      "find": "Run a `/grilling` session.",
+      "replace": "Load the `grilling` skill and run the session.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/triage/SKILL.md",
+      "note": "triage was already entered; the label vocabulary comes from a user-only skill",
+      "find": "The mapping should have been provided to you - run `/setup-matt-pocock-skills` if not.",
+      "replace": "The mapping should have been provided to you - if it wasn't, ask the user to run the **user-only** `setup-matt-pocock-skills` skill before you continue.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/triage/SKILL.md",
+      "note": "the maintainer's entry point, described from inside the skill",
+      "find": "The maintainer invokes `/triage` and describes what they want in natural language.",
+      "replace": "The maintainer invokes the `triage` skill (in DSH: a user-only slash command) and describes what they want in natural language.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/triage/SKILL.md",
+      "note": "grill branch of the triage loop",
+      "find": "run the `/grilling` and `/domain-modeling` skills together",
+      "replace": "load the `grilling` and `domain-modeling` skills together",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/domain.md",
+      "note": "domain-doc consumer rules: this file is read as a reference, so it must not send the model to a user-only skill",
+      "find": "The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily",
+      "replace": "The `domain-modeling` skill (reached from the **user-only** `grill-with-docs` and `improve-codebase-architecture` skills) creates them lazily",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/domain.md",
+      "note": "same file, the gap signal",
+      "find": "or there's a real gap (note it for `/domain-modeling`).",
+      "replace": "or there's a real gap (note it for a `domain-modeling` pass).",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+      "note": "tracker doc read by other skills",
+      "find": "Used by `/wayfinder`.",
+      "replace": "Used by the **user-only** `wayfinder` skill.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md",
+      "note": "same line in the GitLab template",
+      "find": "Used by `/wayfinder`.",
+      "replace": "Used by the **user-only** `wayfinder` skill.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/issue-tracker-local.md",
+      "note": "same line in the local-markdown template",
+      "find": "Used by `/wayfinder`.",
+      "replace": "Used by the **user-only** `wayfinder` skill.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/HTML-REPORT.md",
+      "note": "report template references the glossary skill three times",
+      "find": "(from the `/codebase-design` skill)",
+      "replace": "(from the `codebase-design` skill)",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/HTML-REPORT.md",
+      "note": "second reference",
+      "find": "come straight from the `/codebase-design` skill.",
+      "replace": "come straight from the `codebase-design` skill.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/improve-codebase-architecture/HTML-REPORT.md",
+      "note": "third reference",
+      "find": "If a term isn't in the `/codebase-design` glossary",
+      "replace": "If a term isn't in the `codebase-design` glossary",
+      "expect": 1
+    },
+    {
+      "file": "in-progress/setup-ts-deep-modules/SKILL.md",
+      "note": "in-progress skill cites the vocabulary skill",
+      "find": "run the `/codebase-design` skill — use its language throughout",
+      "replace": "load the `codebase-design` skill — use its language throughout",
+      "expect": 1
+    },
+    {
+      "file": "engineering/to-tickets/SKILL.md",
+      "note": "same setup routing as code-review: the model cannot load a user-only skill",
+      "find": "The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.",
+      "replace": "The issue tracker and triage label vocabulary should have been provided to you — if not, tell the user to run the **user-only** `setup-matt-pocock-skills` skill once and stop until it has (you cannot load that skill yourself).",
+      "expect": 1
+    },
+    {
+      "file": "engineering/to-tickets/SKILL.md",
+      "note": "here the setup skill is named as configuration a human ran, so it only needs to stop reading as a command",
+      "find": "**How** depends on the tracker `/setup-matt-pocock-skills` configured",
+      "replace": "**How** depends on the tracker the `setup-matt-pocock-skills` setup chose",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/SKILL.md",
+      "note": "the plugin ships every skill in one tree, so a folder probe is always true; the real signal is whether the session catalog carries triage",
+      "find": "- Is the `triage` skill installed? (a `triage` skill folder alongside this one, or `triage` in your available skills.) This decides whether Section B runs at all.",
+      "replace": "- Is the `triage` skill available? In DSH the whole mattpocock set ships in one bundle, so a `triage` folder always sits alongside this one — the folder proves nothing. Use your own available-skills catalog instead, and answer **yes** when it lists `triage`. This decides whether Section B runs at all.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/SKILL.md",
+      "note": "DSH reads AGENTS.md first, so it is the file that already wins where both exist",
+      "find": "- If `CLAUDE.md` exists, edit it.\n- Else if `AGENTS.md` exists, edit it.\n- If neither exists, ask the user which one to create — don't pick for them.",
+      "replace": "- If `AGENTS.md` exists, edit it.\n- Else if `CLAUDE.md` exists, edit it — DSH reads `AGENTS.md` first and falls back to `CLAUDE.md`, so a repo that has only the Claude file should keep working through it.\n- If neither exists, ask the user which one to create — don't pick for them. Recommend `AGENTS.md`.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/setup-matt-pocock-skills/SKILL.md",
+      "note": "the matching never-create rule inverts under DSH's priority",
+      "find": "Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa) — always edit the one that's already there.",
+      "replace": "Never create a second instruction file when one already exists. In DSH prefer `AGENTS.md` when both exist: it is read first, so that is where a new `## Agent skills` block belongs.",
+      "expect": 1
+    },
+    {
+      "file": "in-progress/setup-ts-deep-modules/SKILL.md",
+      "note": "same priority inversion, stated in one sentence",
+      "find": "`CLAUDE.md` if present, else `AGENTS.md` (create `AGENTS.md` if neither exists)",
+      "replace": "`AGENTS.md` if present, else `CLAUDE.md` (create `AGENTS.md` if neither exists; DSH reads `AGENTS.md` first)",
+      "expect": 1
+    },
+    {
+      "file": "in-progress/setup-ts-deep-modules/SKILL.md",
+      "note": "the done-when line repeats the file choice",
+      "find": "the repo's `CLAUDE.md`/`AGENTS.md` links to it.",
+      "replace": "the repo's instruction file (`AGENTS.md`, else `CLAUDE.md`) links to it.",
+      "expect": 1
+    },
+    {
+      "file": "productivity/handoff/SKILL.md",
+      "note": "the receiving session is a new DSH session, which cannot rely on the OS temp dir surviving or being found",
+      "find": "Save to the temporary directory of the user's OS - not the current workspace.",
+      "replace": "Save it inside the workspace, not the OS temp directory: the receiving agent is a fresh DSH session whose cwd is the workspace, so `handoff/<YYYY-MM-DD>-<slug>.md` is where it will actually look. Keep `/tmp` out of it — a temp path is neither discoverable from the repo nor guaranteed to survive a reboot.",
+      "expect": 1
+    },
+    {
+      "file": "misc/git-guardrails-claude-code/SKILL.md",
+      "note": "blocker: the original opening promises Claude Code hooks that DSH does not run; lead with the DSH reality",
+      "find": "# Setup Git Guardrails\n\nSets up a PreToolUse hook that intercepts and blocks dangerous git commands before Claude executes them.",
+      "replace": "# Setup Git Guardrails (Claude Code hooks — not active in DSH)\n\n> **DSH users: do not follow this skill as written.** It installs a Claude Code `PreToolUse` hook into `.claude/settings.json` or `~/.claude/settings.json`. DeepSeek Harness does not read those files, so the guardrail would never fire and the user would believe they were protected when they are not.\n>\n> DSH has no settings-file hook layer at all — its protections are the filesystem sandbox / approval policy (the permission presets and `sandbox_permissions`) and, for git specifically, hooks the *repo* enforces. If the user asks for git guardrails in DSH:\n> 1. Say plainly that this skill targets Claude Code and is inactive here.\n> 2. Offer the DSH-native substitutes: a `pre-commit`/`pre-push` git hook in the repo, installed by the repo so it fires no matter which harness is driving (`setup-pre-commit` covers the pre-commit half), or an approval/sandbox policy the user sets in DSH.\n> 3. Only if the user also drives Claude Code in this repo, continue below to install the hook for that harness.\n\nThe rest of this file is the original Claude Code procedure: it sets up a `PreToolUse` hook that intercepts and blocks dangerous git commands before the agent executes them.",
+      "expect": 1
+    },
+    {
+      "file": "in-progress/claude-handoff/SKILL.md",
+      "note": "blocker: the whole point of this skill is Claude Code's background CLI; DSH delegates in-process",
+      "find": "Write a handoff summary of the current conversation so a fresh agent can continue the work. Instead of saving it, launch a background agent seeded with the summary as its prompt: `claude --bg --name \"<descriptive name>\" \"<handoff summary>\"`. It starts in the current working directory and returns immediately; the user manages it with `claude agents`.",
+      "replace": "Write a handoff summary of the current conversation so a fresh agent can continue the work. In DSH you do not shell out to another CLI for this: delegate with the `subagent` tool, passing the summary as the prompt (it runs in this workspace and returns its own report), or `subagent_fork` when the child should inherit this conversation instead of just the summary. Both return a durable agent id immediately, so keep working and pick the result up later with `job_output`/`list_agents` and `send_message`.",
+      "expect": 1
+    },
+    {
+      "file": "in-progress/claude-handoff/SKILL.md",
+      "note": "the CLI flag paragraph names a job list DSH does not have",
+      "find": "Always pass `-n`/`--name` with a descriptive name (e.g. `--name \"Fix login bug\"`) — it sets the display name shown in the job list, session picker, and terminal title.",
+      "replace": "Give the delegation a descriptive `description` (DSH shows it as the child's label in the subagent list) — that replaces the CLI's `--name`, and there is no job list or terminal title to set.",
+      "expect": 1
+    },
+    {
+      "file": "in-progress/claude-handoff/SKILL.md",
+      "note": "the summary becomes a subagent prompt, and the suggested skills must respect DSH's invocation gate",
+      "find": "Include a \"suggested skills\" section in the summary, which suggests skills that the agent should invoke.",
+      "replace": "Include a \"suggested skills\" section in the summary. Name only skills the child can actually load — in DSH the `skill` tool rejects anything marked `disable-model-invocation: true`, so list those as \"the user runs this one\" instead of instructing the child to load them.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "the detour branch names handoff four times as a command",
+      "find": "bridged by **`/handoff`** in both directions (a prototype lives in its own directory, which is exactly what `/handoff` is for — see Phase boundaries):\n   - **`/handoff`** out, then open a fresh session against that file,\n   - **`/prototype`** to answer the question with throwaway code,\n   - **`/handoff`** back what you learned, and reference it from the original idea thread.",
+      "replace": "bridged by the **user-only** `handoff` skill in both directions (a prototype lives in its own directory, which is exactly what `handoff` is for — see Phase boundaries). Ask the user to run it:\n   - **`handoff`** out, then open a fresh session against that file,\n   - **`prototype`** to answer the question with throwaway code,\n   - **`handoff`** back what you learned, and reference it from the original idea thread.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/SKILL.md",
+      "note": "same detour, listed in the standalone moves",
+      "find": "- **`/handoff`** — write a portable markdown file. Narrow:",
+      "replace": "- **`handoff`** (user-only skill) — write a portable markdown file. Narrow:",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "move table: the two non-skill moves lose their command spelling",
+      "find": "| **`/handoff`** | Write a portable markdown file and seed a session anywhere with it. |",
+      "replace": "| **Handoff** | Write a portable markdown file and seed a session anywhere with it. |",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "same table, the compaction row",
+      "find": "| **`/compact`** | Compress this context and seed a fresh session with the summary.  |",
+      "replace": "| **Compact** | Compress this context and seed a fresh session with the summary (the DSH `/compact` command, run by the user). |",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "step 3 opens on handoff as a command",
+      "find": "**3. Do you need to hand off?** `/handoff` is narrow.",
+      "replace": "**3. Do you need to hand off?** The user-only `handoff` skill is narrow.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "step 3's closing line",
+      "find": "That list is the whole clause. What `/handoff` buys is **portability**",
+      "replace": "That list is the whole clause. What `handoff` buys is **portability**",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "step 5 is the compaction branch, and the command is the user's to run",
+      "find": "**5. Otherwise, `/compact`.**",
+      "replace": "**5. Otherwise, ask for `/compact`.**",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "the default-not-first-reach paragraph opens on the command",
+      "find": "`/compact` is the **default, not the first reach**.",
+      "replace": "Compaction is the **default, not the first reach**.",
+      "expect": 1
+    },
+    {
+      "file": "engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "note": "source table names both moves",
+      "find": "| Secondary (`/compact`, `/handoff`) |",
+      "replace": "| Secondary (Compaction, Handoff) |",
+      "expect": 1
+    }
+  ],
+  "slashInvocations": {
+    "$comment": [
+      "Mechanical normalisation for files the hand-written rules above already touch: the remaining",
+      "`/name` references are commands upstream, but in DSH a skill is loaded by name and a session",
+      "command is run by the user. Applied after the hand-written rules, with the same exact-count",
+      "contract; `overlay-report.mjs` lists every one of them with its observed count.",
+      "ask-matt/PHASE-BOUNDARIES.md is excluded: its prose was rewritten by hand instead."
+    ],
+    "files": {
+      "engineering/ask-matt/SKILL.md": [
+        {
+          "find": "`/code-review`",
+          "replace": "`code-review`",
+          "expect": 2,
+          "note": "code-review is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/codebase-design`",
+          "replace": "`codebase-design`",
+          "expect": 2,
+          "note": "codebase-design is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "**`/compact`**",
+          "replace": "**Compact**",
+          "expect": 1,
+          "note": "compact is a session-level move the user asks for, so it is named in prose"
+        },
+        {
+          "find": "`/diagnosing-bugs`",
+          "replace": "`diagnosing-bugs`",
+          "expect": 1,
+          "note": "diagnosing-bugs is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/domain-modeling`",
+          "replace": "`domain-modeling`",
+          "expect": 1,
+          "note": "domain-modeling is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/grill-me`",
+          "replace": "`grill-me`",
+          "expect": 4,
+          "note": "grill-me is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/grill-with-docs`",
+          "replace": "`grill-with-docs`",
+          "expect": 10,
+          "note": "grill-with-docs is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/grilling`",
+          "replace": "`grilling`",
+          "expect": 2,
+          "note": "grilling is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/implement`",
+          "replace": "`implement`",
+          "expect": 7,
+          "note": "implement is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/improve-codebase-architecture`",
+          "replace": "`improve-codebase-architecture`",
+          "expect": 4,
+          "note": "improve-codebase-architecture is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/prototype`",
+          "replace": "`prototype`",
+          "expect": 1,
+          "note": "prototype is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/research`",
+          "replace": "`research`",
+          "expect": 1,
+          "note": "research is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/resolving-merge-conflicts`",
+          "replace": "`resolving-merge-conflicts`",
+          "expect": 1,
+          "note": "resolving-merge-conflicts is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/setup-matt-pocock-skills`",
+          "replace": "`setup-matt-pocock-skills`",
+          "expect": 1,
+          "note": "setup-matt-pocock-skills is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/tdd`",
+          "replace": "`tdd`",
+          "expect": 3,
+          "note": "tdd is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/teach`",
+          "replace": "`teach`",
+          "expect": 1,
+          "note": "teach is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/to-questionnaire`",
+          "replace": "`to-questionnaire`",
+          "expect": 1,
+          "note": "to-questionnaire is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/to-spec`",
+          "replace": "`to-spec`",
+          "expect": 3,
+          "note": "to-spec is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/to-tickets`",
+          "replace": "`to-tickets`",
+          "expect": 5,
+          "note": "to-tickets is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/triage`",
+          "replace": "`triage`",
+          "expect": 2,
+          "note": "triage is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/wait-what`",
+          "replace": "`wait-what`",
+          "expect": 1,
+          "note": "wait-what is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/wayfinder`",
+          "replace": "`wayfinder`",
+          "expect": 2,
+          "note": "wayfinder is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/wizard`",
+          "replace": "`wizard`",
+          "expect": 1,
+          "note": "wizard is a skill, not a command: name it instead of running it"
+        },
+        {
+          "find": "`/writing-for-agents`",
+          "replace": "`writing-for-agents`",
+          "expect": 1,
+          "note": "writing-for-agents is a skill, not a command: name it instead of running it"
+        }
+      ],
+      "engineering/improve-codebase-architecture/SKILL.md": [
+        {
+          "find": "`/codebase-design`",
+          "replace": "`codebase-design`",
+          "expect": 1,
+          "note": "codebase-design is a skill, not a command: name it instead of running it"
+        }
+      ],
+      "engineering/setup-matt-pocock-skills/issue-tracker-github.md": [
+        {
+          "find": "`/triage`",
+          "replace": "`triage`",
+          "expect": 1,
+          "note": "triage is a skill, not a command: name it instead of running it"
+        }
+      ],
+      "engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md": [
+        {
+          "find": "`/triage`",
+          "replace": "`triage`",
+          "expect": 1,
+          "note": "triage is a skill, not a command: name it instead of running it"
+        }
+      ],
+      "engineering/triage/AGENT-BRIEF.md": [
+        {
+          "find": "`/triage`",
+          "replace": "`triage`",
+          "expect": 1,
+          "note": "triage is a skill, not a command: name it instead of running it"
+        }
+      ],
+      "in-progress/loop-me/SKILL.md": [
+        {
+          "find": "`/grilling`",
+          "replace": "`grilling`",
+          "expect": 1,
+          "note": "grilling is a skill, not a command: name it instead of running it"
+        }
+      ]
+    }
+  }
+}

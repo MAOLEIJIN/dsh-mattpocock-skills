@@ -56,15 +56,17 @@ dsh-mattpocock-skills/
 "dsh": { "profile": { "bundles": [ /* … */ "dsh-mattpocock-skills" ] } }
 ```
 
-从别处安装：
+从 GitHub 安装（仓库：<https://github.com/NmouZh/dsh-mattpocock-skills>）：
 
 ```bash
+git clone https://github.com/NmouZh/dsh-mattpocock-skills.git ~/dsh-mattpocock-skills
 cd /root/.dsh/profiles/web
-pnpm add "dsh-mattpocock-skills@link:/path/to/dsh-mattpocock-skills"
+pnpm add "dsh-mattpocock-skills@link:$HOME/dsh-mattpocock-skills"
 # 再把 "dsh-mattpocock-skills" 加进 package.json 的 dsh.profile.bundles，最后重启宿主
 ```
 
 > `dsh.profile.bundles` 里必须是 **Node 能解析的包名**，不能写 `link:`/`file:` 前缀；`link:` 只出现在 `dependencies`。
+> 用 `link:` 指向 clone 而不是 `pnpm add <git 地址>`：后者会打包拷贝一份，之后 `git pull` 不会反映到 profile 里。
 
 ## 配置
 

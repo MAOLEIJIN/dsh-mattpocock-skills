@@ -17,6 +17,7 @@
  */
 
 import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
 import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { dirname, join, relative, resolve, sep } from 'node:path'
 import { createRequire } from 'node:module'
@@ -213,6 +214,7 @@ async function writeMetadata(sourceRoot, skills) {
     upstream: {
       repository: 'https://github.com/mattpocock/skills',
       version: await upstreamVersion(sourceRoot),
+      revision: upstreamRevision(sourceRoot),
       sourceRoot,
     },
     vendoredAt: new Date().toISOString(),
@@ -305,6 +307,18 @@ async function upstreamVersion(sourceRoot) {
   try {
     const pkg = JSON.parse(await readFile(join(sourceRoot, 'package.json'), 'utf8'))
     return typeof pkg.version === 'string' ? pkg.version : 'unknown'
+  } catch {
+    return 'unknown'
+  }
+}
+
+/** Resolve the exact upstream Git revision when the source is a checkout. */
+function upstreamRevision(sourceRoot) {
+  try {
+    return execFileSync('git', ['-C', sourceRoot, 'rev-parse', 'HEAD'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim()
   } catch {
     return 'unknown'
   }

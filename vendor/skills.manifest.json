@@ -3,9 +3,10 @@
   "upstream": {
     "repository": "https://github.com/mattpocock/skills",
     "version": "1.2.3",
+    "revision": "3cca18b368ae95cdbdebbff572ccafa662551015",
     "sourceRoot": "E:\\personal-maoleijin\\mattpocock-skills"
   },
-  "vendoredAt": "2026-09-15T09:57:48.643Z",
+  "vendoredAt": "2026-09-15T10:13:44.759Z",
   "skillCount": 37,
   "skills": [
     {

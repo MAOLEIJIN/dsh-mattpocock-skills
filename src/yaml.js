@@ -6,15 +6,16 @@
  * The packaged bundle resolves `yaml` from the profile that installs the plugin
  * (the plugin declares it as a dependency). During development in the checkout
  * there is no local `node_modules`, so resolution falls back to the DSH profile
- * named by `DSH_PROFILE_ROOT`, then to `/root/.dsh/profiles/web`. Only
+ * named by `DSH_PROFILE_ROOT`, then to the current user's `.dsh/profiles/web`. Only
  * `MODULE_NOT_FOUND` is retried: a real failure inside `yaml` still surfaces.
  */
 
 const { createRequire } = require('node:module')
 const { isAbsolute, join } = require('node:path')
+const { homedir } = require('node:os')
 
 /** Profile root used when no override is configured. */
-const DEFAULT_PROFILE_ROOT = '/root/.dsh/profiles/web'
+const DEFAULT_PROFILE_ROOT = join(homedir(), '.dsh', 'profiles', 'web')
 
 /** Candidate require roots, most specific first. */
 const ROOTS = [

@@ -6,8 +6,7 @@
  *
  * Run it against a DSH profile so the peer packages resolve:
  *
- *   cd /root/.dsh/profiles/web
- *   node /root/dsh-mattpocock-skills/dsh-mattpocock-skills/test/bundle.test.js
+ *   Set DSH_PROFILE_ROOT to a profile checkout when testing against an installed host.
  *
  * The suite exercises the provider contract directly and then boots one real
  * `SkillRegistry` through Cordis, so the registry merge, invocation policy, and

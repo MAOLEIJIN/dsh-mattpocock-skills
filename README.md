@@ -1,5 +1,35 @@
 # dsh-mattpocock-skills
 
+Continuously synchronized [Matt Pocock skills](https://github.com/mattpocock/skills) for DeepSeek Harness, with a strict, separately maintained DSH adaptation overlay.
+
+This project combines two community approaches:
+
+- [NmouZh/dsh-mattpocock-skills](https://github.com/NmouZh/dsh-mattpocock-skills): packaged provider, invocation-policy mapping, tested semantic overlay, and drift detection.
+- [auggie246/dsh-mattpocock-skills](https://github.com/auggie246/dsh-mattpocock-skills): keep upstream as the source of truth and reapply a narrow DSH overlay after every update.
+
+The vendored `skills/` tree remains byte-identical to upstream. DSH-specific changes are applied in memory from `overlay/patches.json`; stale anchors fail validation instead of silently producing a partially adapted package.
+
+## Repository layout used by the maintainer
+
+```text
+E:\personal-maoleijin\mattpocock-skills                 MAOLEIJIN/skills fork
+E:\personal-maoleijin\dsh-mattpocock-skills            merged DSH plugin
+E:\personal-maoleijin\dsh-mattpocock-skills-sync-source
+E:\personal-maoleijin\dsh-mattpocock-skills-overlay-source
+```
+
+Update the local upstream fork, then regenerate and verify the DSH package:
+
+```powershell
+git -C ..\mattpocock-skills fetch upstream
+git -C ..\mattpocock-skills merge --ff-only upstream/main
+git -C ..\mattpocock-skills push origin main
+npm run sync:local
+npm test
+```
+
+`npm run sync` instead clones `MAOLEIJIN/skills` into a temporary directory. The scheduled GitHub workflow uses that mode and opens a pull request only after the overlay and provider tests pass.
+
 [Matt Pocock 的 agent skills](https://github.com/mattpocock/skills)（上游 **1.2.3**，全部 **35 个技能**）打包成的 DeepSeek Harness 插件，**外加一层 DSH 适配**：
 
 - 技能正文随包分发，插件通过 `ctx.skills` 注册一个**只读 provider**，整套作为**一个插件行**安装、升级、卸载，不再往用户技能根目录里散落几十份拷贝；

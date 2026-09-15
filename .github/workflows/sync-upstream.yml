@@ -1,0 +1,33 @@
+name: Sync Matt Pocock upstream
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run sync
+      - run: npm test
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/sync-mattpocock-upstream
+          delete-branch: true
+          commit-message: "chore: sync mattpocock skills upstream"
+          title: "chore: sync mattpocock skills upstream"
+          body: |
+            Automated vendoring update from `mattpocock/skills`.
+
+            The DSH overlay and provider tests passed before this PR was created.

@@ -3,10 +3,10 @@
   "upstream": {
     "repository": "https://github.com/mattpocock/skills",
     "version": "1.2.3",
-    "sourceRoot": "/root/dsh-mattpocock-skills/skills-1.2.3"
+    "sourceRoot": "E:\\personal-maoleijin\\mattpocock-skills"
   },
-  "vendoredAt": "2026-09-12T12:38:59.531Z",
-  "skillCount": 35,
+  "vendoredAt": "2026-09-15T09:57:48.643Z",
+  "skillCount": 37,
   "skills": [
     {
       "name": "ask-matt",
@@ -18,8 +18,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "3d38910535f5f01e15bc5fd7f6ca8880d628cd248741f08e6780dd7c1828e832",
-      "bytes": 11491
+      "sha256": "d8934db5ccf28b8c6e43d44d88801936d3831ab5666280b26d6f0852a312dc63",
+      "bytes": 11507
     },
     {
       "name": "claude-handoff",
@@ -31,21 +31,21 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "ef298da8abf31c80e4770e6881cee4973a20d66a3ad74364889c2b388f30184e",
-      "bytes": 1286
+      "sha256": "7f99b9c489c8d55374d261c31e2dcf7e75c2ee103dbb64e87b18971a05449f21",
+      "bytes": 1319
     },
     {
       "name": "code-review",
       "category": "engineering",
-      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
+      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "9cf46653dd9c710ea1e6c22423caf31a794c88773bc94bdaa23140277f470442",
-      "bytes": 6634
+      "sha256": "3abbdfe52540f9242e16589fae2cc423b3d98994c37683944462b29bab89495c",
+      "bytes": 6676
     },
     {
       "name": "codebase-design",
@@ -57,8 +57,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "a8d50abac5a4018f60e1d911d4b6f4e36454ca14d6c390c0695a578c7de65dad",
-      "bytes": 6488
+      "sha256": "362b0bec828219d9f4b08ca7c466164e67253bdd817359258e60d2e9c5692a8f",
+      "bytes": 6560
     },
     {
       "name": "diagnosing-bugs",
@@ -70,21 +70,21 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "b9339b09ee3980808d8c5a35c7251b891b8b1e0036ec4ca37812b976ebddf6b6",
-      "bytes": 8969
+      "sha256": "bca66b7141da7d225b7dfd1abf6f2bee657b8044d3897604055e760749c71724",
+      "bytes": 8667
     },
     {
       "name": "domain-modeling",
       "category": "engineering",
-      "description": "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.",
+      "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "152e2c97239affb12a60c5f4a7e74ab546a49ae169688c81f4e2ccc42dafa579",
-      "bytes": 3427
+      "sha256": "dd4c753a617bd7db97c34fd3e049581c4bc0c0590e8a8b1f97d3b9d6013131dc",
+      "bytes": 3405
     },
     {
       "name": "git-guardrails-claude-code",
@@ -96,8 +96,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "03c4de7613c712aea336d64c467ea3ed14be2cbd52345925fe949c75c01c29f7",
-      "bytes": 2312
+      "sha256": "12d335b84bcf984b213b527014262233f27ffa1eb807db466832ff711b96f41f",
+      "bytes": 2408
     },
     {
       "name": "grill-me",
@@ -109,8 +109,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "6189dfceb7304a6e5558f75d87e68fa3bc7fcf7ba120e44f21f8a61fe01eba54",
-      "bytes": 147
+      "sha256": "19e660207b447acf6ee0d600471c02e549c7aca8fb3ab38fdc2c7056aa442fc8",
+      "bytes": 164
     },
     {
       "name": "grill-with-docs",
@@ -122,8 +122,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "610d091047bcfb9db0f75c057d15538481a721111579fc5ec7f83ad9131a2165",
-      "bytes": 245
+      "sha256": "abc0fa7948db18b5fb0e1cc1c522ac5ff47d874e2da1e5df60619d79be11f38b",
+      "bytes": 254
     },
     {
       "name": "grilling",
@@ -135,8 +135,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "fa5c1e5ee76b1c8f1ae56101f52c9e239de75d5c578adc61227b92d10b7e52ef",
-      "bytes": 1872
+      "sha256": "d806733216b16e51adad834e724bfec5540a436d06395bfc75b843cda9f7404b",
+      "bytes": 2015
     },
     {
       "name": "handoff",
@@ -148,8 +148,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "57c9f1f392d7352cdc85b1e39ca49eddc70ce1dc278bd9653fb4f23dfc2560fc",
-      "bytes": 879
+      "sha256": "96f8045f01f569daa3737150d918b7201ccd090905fb10cefedd326e4001f551",
+      "bytes": 910
     },
     {
       "name": "implement",
@@ -161,8 +161,21 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "6d3fd9e83b8f36e5213854779db49b256a457a7ebb4a503e53fa7dcff696adc3",
-      "bytes": 433
+      "sha256": "30cd7bc1ebfb3891e85a1eed3b3b81aea0fa4ad4553a784de7f8e421b2d223e0",
+      "bytes": 448
+    },
+    {
+      "name": "implement-spec",
+      "category": "in-progress",
+      "description": "Implement a specification in code.",
+      "whenToUse": null,
+      "argumentHint": null,
+      "invocation": {
+        "modelInvocable": false,
+        "userInvocable": true
+      },
+      "sha256": "986c0becc03a5b72d1c8b04c8e7c0830b8b9baae109acba404d0f1a8831966a5",
+      "bytes": 2078
     },
     {
       "name": "improve-codebase-architecture",
@@ -174,8 +187,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "7b76f01b0eefe49a127754c9027a6235a036a21348df5dad988893d8b2f384d6",
-      "bytes": 6009
+      "sha256": "ab67dc77f7fb0e82ac2ce45e3680c4f90bd68f638c86522996cdf03426084ac7",
+      "bytes": 6064
     },
     {
       "name": "loop-me",
@@ -187,8 +200,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "ad7110ecbd419fc312c3e7c62f496bd346a05462cdf1589b12ff7550fce3202a",
-      "bytes": 2560
+      "sha256": "38ac316635d244abfdc1526edec49596f9284b36595f5a212fc5983894b6094a",
+      "bytes": 2554
     },
     {
       "name": "migrate-to-shoehorn",
@@ -200,8 +213,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "de4da4c11d924fac79c924b2ee3d2db4a5cb98386eb490a599119463d036ae72",
-      "bytes": 2795
+      "sha256": "200c11163ecd56d908ec431154e4b452cd6afeb3de91e5b54434f543f0822201",
+      "bytes": 2913
     },
     {
       "name": "prototype",
@@ -213,8 +226,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "2579ecf89a7fb7e73345117405c7ba9b9fb5ab22a78ecb08b0ce68b73f0148c2",
-      "bytes": 2954
+      "sha256": "f74ae01f4fc454d3a4ef21271920f1706e626271e715dda0559e489f45c792c3",
+      "bytes": 2957
     },
     {
       "name": "research",
@@ -226,8 +239,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "af378829f015775a3bcd65ff466826722e99359017ae6bae227ca4c9bd14049c",
-      "bytes": 799
+      "sha256": "524b404b1ca373a8b00f63a64667ec4b0a61c3c9cf4e8f246e639be859bb6979",
+      "bytes": 806
     },
     {
       "name": "resolving-merge-conflicts",
@@ -239,8 +252,21 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "c7c9ba81362a786aac05d2223123bf1bd2f8a99c3243a72882ede9c68bedfb24",
-      "bytes": 921
+      "sha256": "d97e7320010bbe7d32313c574acd47cec830d64edd59c956bd0ce2cba84e6ad7",
+      "bytes": 932
+    },
+    {
+      "name": "retro",
+      "category": "in-progress",
+      "description": "Conduct a retrospective on a coding session.",
+      "whenToUse": null,
+      "argumentHint": null,
+      "invocation": {
+        "modelInvocable": false,
+        "userInvocable": true
+      },
+      "sha256": "27213192896e3efa8f0a5dd316bfcfd072e7ae794658523cf1bfe0908b819f1c",
+      "bytes": 3432
     },
     {
       "name": "scaffold-exercises",
@@ -252,21 +278,21 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "75f5c9d771606fb9762f16522efc954df11c324f87148d8ff069bce166257de9",
-      "bytes": 3589
+      "sha256": "de28db7a0954db55c11ba1e3cc0fd4c037bf0f5cb8313cb292e319bcce47f424",
+      "bytes": 3695
     },
     {
       "name": "setup-matt-pocock-skills",
       "category": "engineering",
-      "description": "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+      "description": "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "310fb1a73c0467e617e17d7c41d4a2278b5405c4a27f36d7cd22bb4599aee6bb",
-      "bytes": 6922
+      "sha256": "86c0dee483fb69f7f5ecfcd010f6d7cbb30df2c47a9b059ac95f98380f383d86",
+      "bytes": 6957
     },
     {
       "name": "setup-pre-commit",
@@ -278,21 +304,21 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "872f4037cb7e6e0e340d4175c086550072959925dffc87b160d1a30dc9f63bbd",
-      "bytes": 2261
+      "sha256": "e069e6a23069ebdba946d4dea11e5d663c10640c6b14b55c4585c81b1a256ac9",
+      "bytes": 2349
     },
     {
       "name": "setup-ts-deep-modules",
       "category": "in-progress",
-      "description": "Wire dependency-cruiser into a TypeScript repo so each package is a deep module — implementation hidden in subfolders, reachable only through its entry-point files. User-invoked.",
+      "description": "Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "2c6e39ccdd77f85337c13a4877c222d47dcd26e31619157af9688798244192d5",
-      "bytes": 7602
+      "sha256": "3709fc7d62ea75cd7da1d6f21e33d58d758766fb8f5247a859687d7ed63c213e",
+      "bytes": 7648
     },
     {
       "name": "tdd",
@@ -304,8 +330,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "5e6b9c16b547113e90afbb946489d1c1384be5c2128f0159bd0bee57251ecf08",
-      "bytes": 3568
+      "sha256": "193b791c489d1640ccfb58d7cbd60fc9e059ef44632b3c92f208784cfe45ab78",
+      "bytes": 3587
     },
     {
       "name": "teach",
@@ -317,8 +343,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "6d2dbe5e03084cf26fef66b535127b36cd1bcbe9478e26b0626029cd51dc2259",
-      "bytes": 9507
+      "sha256": "3377485cbb1d62782122c1cc8cab4ceb37d5457c0543889784f3d7d9ca359e04",
+      "bytes": 9646
     },
     {
       "name": "to-questionnaire",
@@ -330,73 +356,73 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "8e7f9ed8d7b2e66babf1a54aee9b94319bf38c32619cffe78819df6518ead5fc",
-      "bytes": 2921
+      "sha256": "77825120815c21400f82e2794faf342d1d1a4ab1493be3fe061857885d26b768",
+      "bytes": 2958
     },
     {
       "name": "to-spec",
       "category": "engineering",
-      "description": "Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
+      "description": "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "5d26479544b08048d3a8f79d937b39bc613a617f026b3fd083bafc1e99a7b811",
-      "bytes": 3035
+      "sha256": "c73a2250beac0479e384f5466e834bb54ce6e30b7f8705e9999ba840d9d59b36",
+      "bytes": 3118
     },
     {
       "name": "to-tickets",
       "category": "engineering",
-      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker.",
+      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "5ecdf1d4df8a360ed39df21a2347f97ba177afd449a577da4f6b6ea8e1ebb808",
-      "bytes": 5707
+      "sha256": "8082bc6ef165027c5df3215763055f4a9668878bf27f25f582db78a14c3ed3c1",
+      "bytes": 5776
     },
     {
       "name": "triage",
       "category": "engineering",
-      "description": "Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.",
+      "description": "Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "91e2817ecb688c4df4e2444eab472d1d79d2a0a57abf9f6726967664c460ff2e",
-      "bytes": 6582
+      "sha256": "652c815971c2df925cee0f250ae2596f50fde19328305f3c55afd157a7f06fe6",
+      "bytes": 6669
     },
     {
       "name": "wait-what",
       "category": "productivity",
-      "description": "Stop. That last message did not land — re-pitch it.",
+      "description": "Stop. That last message did not land: re-pitch it.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "8923f7df1a0d1b138281658e134caa4bf1c618d2876a2323b19acdfdffebc024",
-      "bytes": 325
+      "sha256": "dcaa44ef972d5a3f9bda65a69442fb11e36eb41b7e9bb0dc8b63031ba0582fdb",
+      "bytes": 401
     },
     {
       "name": "wayfinder",
       "category": "engineering",
-      "description": "Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+      "description": "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "d33e2141f7c8bbfd137fef0213cbec465820e4680e67da5d0f0815d6742d26c2",
-      "bytes": 11887
+      "sha256": "3362fa360948f8526e88ebe8184f5402f9b5f4d9dced2ba0ed2721f64ae3de5a",
+      "bytes": 12036
     },
     {
       "name": "wizard",
@@ -408,21 +434,21 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "7fb2b4ba23870ec028c85c6d7ef1ca573413ca7026bd4d410fe0e6d8dc9d1e92",
-      "bytes": 4163
+      "sha256": "dbefb750eae07d9f8b05ab1084f6acfdda2752df2a6b577c46a505e2bc790164",
+      "bytes": 4167
     },
     {
       "name": "writing-beats",
       "category": "in-progress",
-      "description": "Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
+      "description": "Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "668185cfb6eb6a324b8d864404c398e21f3cddbb637b760e39b7784c8c5e4fee",
-      "bytes": 4905
+      "sha256": "b23f7851987dab7828c83d42df98090ccebff586b64908ce6a5e772440214621",
+      "bytes": 4922
     },
     {
       "name": "writing-for-agents",
@@ -434,34 +460,34 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "a842323e664e5af104eac5c97ad22fda929ebeb62d81c501161ac1f6f482db58",
-      "bytes": 10966
+      "sha256": "1c0c4ebf2d221917591144f0ced4fe46dae13301cb3d6d93fc88ecf0dda6aed2",
+      "bytes": 10967
     },
     {
       "name": "writing-fragments",
       "category": "in-progress",
-      "description": "Writing, explore — mine raw fragments, no structure yet.",
+      "description": "Writing, explore: mine raw fragments, no structure yet.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "c61b6608f227b0eee1b832273360cf5088ad68c343c15ec9c06673086662e64e",
-      "bytes": 3579
+      "sha256": "3be6ffe9386ddd6de8b320c331295953995792fd65d0972aa2a28524ead73e90",
+      "bytes": 3637
     },
     {
       "name": "writing-shape",
       "category": "in-progress",
-      "description": "Writing, exploit — shape raw material into an article, paragraph by paragraph.",
+      "description": "Writing, exploit: shape raw material into an article, paragraph by paragraph.",
       "whenToUse": null,
       "argumentHint": null,
       "invocation": {
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "67d34422bbe43cfd523dea9fe7b3ec5260791aed8ea52309b5b85f9d76f32745",
-      "bytes": 5970
+      "sha256": "c13cbc364fbceefce654d9a4b0331113ff47efe90ce2523c2de23ecef63fefbd",
+      "bytes": 6001
     }
   ]
 }

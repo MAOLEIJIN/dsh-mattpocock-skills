@@ -1,7 +1,10 @@
 {
-  "name": "dsh-mattpocock-skills",
+  "name": "@maoleijin/dsh-mattpocock-skills",
   "version": "0.1.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Continuously synchronized Matt Pocock skills for DeepSeek Harness, with a verified DSH adaptation overlay.",
   "license": "MIT",
   "author": {
@@ -44,6 +47,8 @@
     "test",
     "cordis.patch.yml",
     "README.md",
+    "docs",
+    "scripts",
     "LICENSE"
   ],
   "dsh": {

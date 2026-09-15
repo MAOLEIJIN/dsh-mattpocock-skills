@@ -7,15 +7,15 @@
  * resolves to the installed package. It uses the launcher's own helpers
  * (`loadProfile` + `composeEntries`), so the result matches a host boot.
  *
- * Run it from the profile directory:
- *   cd /root/.dsh/profiles/web && node <this file>
+ * Set DSH_PROFILE_ROOT to the profile directory before running this file.
  */
 
 const { createRequire } = require('node:module')
 const { join } = require('node:path')
 
-const PROFILE_DIR = process.env.DSH_PROFILE_ROOT ?? '/root/.dsh/profiles/web'
-const BUNDLE_ID = 'dsh-mattpocock-skills'
+const PROFILE_DIR = process.env.DSH_PROFILE_ROOT
+if (!PROFILE_DIR) throw new Error('DSH_PROFILE_ROOT must point to the profile being verified')
+const BUNDLE_ID = '@maoleijin/dsh-mattpocock-skills'
 
 const req = createRequire(join(PROFILE_DIR, 'package.json'))
 const boot = req('@deepseek-ai/dsh-app-boot')

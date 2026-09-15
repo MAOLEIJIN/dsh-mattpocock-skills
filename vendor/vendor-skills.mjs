@@ -31,7 +31,7 @@ const { parse: parseYaml } = loadYaml()
 
 const VENDORED_SKILLS = PACKAGED_SKILLS_ROOT
 const REPORT_FILE = join(PACKAGE_ROOT, 'vendor', 'VENDOR.md')
-const DEFAULT_SOURCE = '/root/dsh-mattpocock-skills/skills-1.2.3'
+const DEFAULT_SOURCE = process.env.MATTPOCOCK_SKILLS_SOURCE ?? ''
 
 /** Read the command line into an options object. */
 function parseArgs(argv) {
@@ -265,6 +265,39 @@ async function writeMetadata(sourceRoot, skills) {
   for (const file of [...adapted].sort()) lines.push(`  - \`${file}\``)
   lines.push('')
   await writeFile(REPORT_FILE, `${lines.join('\n')}`, 'utf8')
+
+  const catalogFile = join(
+    PACKAGE_ROOT,
+    'overlay',
+    'skills',
+    'dsh-workflow',
+    'dsh-workflow',
+    'SKILLS.md',
+  )
+  const catalogLines = [
+    '# The skill catalog',
+    '',
+    'Generated from `vendor/skills.manifest.json` by `node vendor/vendor-skills.mjs`. Do not edit by hand.',
+    '',
+    '| Skill | Who can start it | Category | What it is for |',
+    '| --- | --- | --- | --- |',
+    '| `dsh-workflow` | model + user | overlay | DSH invocation rules, workflow map, and platform equivalents. |',
+  ]
+  for (const skill of skills) {
+    const who = skill.invocation.modelInvocable ? 'model + user' : '**user only**'
+    const description = skill.description.replaceAll('|', '\\|').replace(/\s+/g, ' ').trim()
+    catalogLines.push(`| \`${skill.name}\` | ${who} | ${skill.category} | ${description} |`)
+  }
+  catalogLines.push(
+    '',
+    '## Notes',
+    '',
+    '- `user only` preserves upstream `disable-model-invocation: true`; the user starts those flows.',
+    '- `in-progress` skills are experimental upstream and may change without compatibility guarantees.',
+    '- DSH applies the adaptations in `overlay/patches.json` in memory; vendored files remain byte-identical to upstream.',
+    '',
+  )
+  await writeFile(catalogFile, catalogLines.join('\n'), 'utf8')
 }
 
 /** Read the upstream package version, falling back to an explicit marker. */
@@ -325,6 +358,9 @@ async function main() {
   if (options.help === true) {
     console.log('usage: node vendor/vendor-skills.mjs [--from <dir>] [--check] [--quiet]')
     return
+  }
+  if (options.from === '') {
+    throw new Error('--from <upstream checkout> is required (or set MATTPOCOCK_SKILLS_SOURCE)')
   }
   const sourceRoot = resolve(options.from)
   const skills = await collectSkills(sourceRoot, options)

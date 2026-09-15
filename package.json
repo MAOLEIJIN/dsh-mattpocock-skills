@@ -1,20 +1,22 @@
 {
   "name": "dsh-mattpocock-skills",
-  "version": "1.2.3",
-  "private": true,
-  "description": "Matt Pocock's agent skills (mattpocock/skills 1.2.3) as a self-contained DeepSeek Harness plugin: the full 35-skill set ships inside the package and is registered on ctx.skills by a read-only provider, so the set installs, updates and uninstalls as one plugin instead of 35 loose copies.",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Continuously synchronized Matt Pocock skills for DeepSeek Harness, with a verified DSH adaptation overlay.",
   "license": "MIT",
   "author": {
     "name": "Matt Pocock",
     "url": "https://www.aihero.dev"
   },
   "contributors": [
-    "Packaged for DeepSeek Harness by the DSH web profile"
+    "DSH adaptation by NmouZh",
+    "Upstream synchronization design by auggie246",
+    "Maintained by MAOLEIJIN"
   ],
-  "homepage": "https://github.com/mattpocock/skills",
+  "homepage": "https://github.com/MAOLEIJIN/dsh-mattpocock-skills",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattpocock/skills.git"
+    "url": "git+https://github.com/MAOLEIJIN/dsh-mattpocock-skills.git"
   },
   "keywords": [
     "dsh-plugin",
@@ -58,7 +60,10 @@
   },
   "scripts": {
     "vendor": "node vendor/vendor-skills.mjs",
-    "check": "node vendor/vendor-skills.mjs --check && node vendor/gen-slash-rules.mjs --check",
+    "sync": "node vendor/sync-upstream.mjs",
+    "sync:local": "node vendor/sync-upstream.mjs --from ../mattpocock-skills",
+    "sync:check": "node vendor/sync-upstream.mjs --check",
+    "check": "node vendor/sync-upstream.mjs --check",
     "test": "node test/bundle.test.js",
     "verify:profile": "node test/verify-profile.cjs",
     "archive:duplicates": "node tools/archive-duplicates.mjs",

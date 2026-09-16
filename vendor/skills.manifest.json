@@ -3,9 +3,9 @@
   "upstream": {
     "repository": "https://github.com/mattpocock/skills",
     "version": "1.2.3",
-    "revision": "3cca18b368ae95cdbdebbff572ccafa662551015"
+    "revision": "959a8e9f1edc3adbe2f7e3054bb6fbefa6696260"
   },
-  "vendoredAt": "2026-09-15T10:41:56.070Z",
+  "vendoredAt": "2026-09-16T00:33:41.789Z",
   "skillCount": 37,
   "skills": [
     {
@@ -265,8 +265,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "27213192896e3efa8f0a5dd316bfcfd072e7ae794658523cf1bfe0908b819f1c",
-      "bytes": 3432
+      "sha256": "42110f533f169026d037cf141b9f6c2752c6d914903be4758c38a68349e83e78",
+      "bytes": 4413
     },
     {
       "name": "scaffold-exercises",

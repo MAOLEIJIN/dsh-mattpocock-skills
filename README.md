@@ -28,13 +28,13 @@ npx --yes @deepseek-ai/dsh --profile web --dump-config | Select-String "mattpoco
 
 ### DSH Desktop
 
-DSH Desktop exclusively manages its profile. Open its plugin-management window, enter the npm package name below, inspect the preview, and confirm installation:
+DSH Desktop exclusively manages its profile through three catalog-oriented pages: plugin configuration, installed plugins, and the plugin market. It does not expose an arbitrary npm-package input. After this package is accepted into the configured market catalog, open **Plugin Market**, search for the package below, inspect the preview, and confirm installation:
 
 ```text
 @maoleijin/dsh-mattpocock-skills
 ```
 
-Completely quit and reopen DSH Desktop, then start a new session. Desktop does not accept filesystem paths or GitHub URLs in the package field.
+Completely quit and reopen DSH Desktop, then start a new session. Until the market entry is indexed, use the Web profile; publishing to npm alone does not make a package appear in Desktop's market.
 
 See [docs/installation.md](docs/installation.md) or run [scripts/install-web.bat](scripts/install-web.bat) on Windows.
 

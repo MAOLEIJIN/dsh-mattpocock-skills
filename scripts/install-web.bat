@@ -28,5 +28,5 @@ if errorlevel 1 (
 
 echo.
 echo Installation complete. Restart dsh web and create a new session.
-echo For Desktop, install %PACKAGE_SPEC% from the Desktop plugin window.
+echo For Desktop, the package must first be listed in the configured plugin market.
 exit /b 0

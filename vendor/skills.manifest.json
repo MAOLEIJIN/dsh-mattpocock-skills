@@ -5,7 +5,7 @@
     "version": "1.2.3",
     "revision": "959a8e9f1edc3adbe2f7e3054bb6fbefa6696260"
   },
-  "vendoredAt": "2026-09-16T00:33:41.789Z",
+  "vendoredAt": "2026-09-17T08:40:34.120Z",
   "skillCount": 37,
   "skills": [
     {
@@ -18,8 +18,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "d8934db5ccf28b8c6e43d44d88801936d3831ab5666280b26d6f0852a312dc63",
-      "bytes": 11507
+      "sha256": "b25d86fb36b1d294eeead5d7db529f86135f9671f2afcd607579a63bb2213769",
+      "bytes": 11417
     },
     {
       "name": "claude-handoff",
@@ -31,8 +31,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "7f99b9c489c8d55374d261c31e2dcf7e75c2ee103dbb64e87b18971a05449f21",
-      "bytes": 1319
+      "sha256": "6738e8b7c7899ea0038fb7a5c859ca1b90c7b1eb40123dcdbe94c51b5b119f12",
+      "bytes": 1301
     },
     {
       "name": "code-review",
@@ -44,8 +44,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "3abbdfe52540f9242e16589fae2cc423b3d98994c37683944462b29bab89495c",
-      "bytes": 6676
+      "sha256": "47f4e52c21694def9c7c11cbfbf891ca35eac7a93e395797515be3c8a409ae50",
+      "bytes": 6589
     },
     {
       "name": "codebase-design",
@@ -57,8 +57,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "362b0bec828219d9f4b08ca7c466164e67253bdd817359258e60d2e9c5692a8f",
-      "bytes": 6560
+      "sha256": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+      "bytes": 6446
     },
     {
       "name": "diagnosing-bugs",
@@ -70,8 +70,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "bca66b7141da7d225b7dfd1abf6f2bee657b8044d3897604055e760749c71724",
-      "bytes": 8667
+      "sha256": "77f3cf31bc99b2f49af943222526531fcc9fc41d047626d3640e875e85af3e84",
+      "bytes": 8529
     },
     {
       "name": "domain-modeling",
@@ -83,8 +83,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "dd4c753a617bd7db97c34fd3e049581c4bc0c0590e8a8b1f97d3b9d6013131dc",
-      "bytes": 3405
+      "sha256": "327a2b50620e2fd70abc6893cd6965e76b20f8d0adb0dc2c8d5eb3845efb643e",
+      "bytes": 3331
     },
     {
       "name": "git-guardrails-claude-code",
@@ -96,8 +96,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "12d335b84bcf984b213b527014262233f27ffa1eb807db466832ff711b96f41f",
-      "bytes": 2408
+      "sha256": "69b291d655626a01602b998a1836fcb93c058ede68dfafddfd71e87f17074764",
+      "bytes": 2313
     },
     {
       "name": "grill-me",
@@ -109,8 +109,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "19e660207b447acf6ee0d600471c02e549c7aca8fb3ab38fdc2c7056aa442fc8",
-      "bytes": 164
+      "sha256": "caaf8b8de1684f96e26b28f3c29189db5c89cce4b73e1c93d86164f66ef88637",
+      "bytes": 157
     },
     {
       "name": "grill-with-docs",
@@ -122,8 +122,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "abc0fa7948db18b5fb0e1cc1c522ac5ff47d874e2da1e5df60619d79be11f38b",
-      "bytes": 254
+      "sha256": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+      "bytes": 247
     },
     {
       "name": "grilling",
@@ -135,8 +135,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "d806733216b16e51adad834e724bfec5540a436d06395bfc75b843cda9f7404b",
-      "bytes": 2015
+      "sha256": "10ff989e7498b23b5acb49d5048f11dcd906757d2f79c5cdf8a00001381296f2",
+      "bytes": 1987
     },
     {
       "name": "handoff",
@@ -148,8 +148,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "96f8045f01f569daa3737150d918b7201ccd090905fb10cefedd326e4001f551",
-      "bytes": 910
+      "sha256": "7c62de979fdc7ac32fb5ddb2146156c917f80ee070d30fadc9d40343c4b6ed25",
+      "bytes": 894
     },
     {
       "name": "implement",
@@ -161,8 +161,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "30cd7bc1ebfb3891e85a1eed3b3b81aea0fa4ad4553a784de7f8e421b2d223e0",
-      "bytes": 448
+      "sha256": "6d3fd9e83b8f36e5213854779db49b256a457a7ebb4a503e53fa7dcff696adc3",
+      "bytes": 433
     },
     {
       "name": "implement-spec",
@@ -174,8 +174,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "986c0becc03a5b72d1c8b04c8e7c0830b8b9baae109acba404d0f1a8831966a5",
-      "bytes": 2078
+      "sha256": "f703b5f41df9c2202e19540d203e0d5fc32613572a838a070136cc22e712b129",
+      "bytes": 2043
     },
     {
       "name": "improve-codebase-architecture",
@@ -187,8 +187,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "ab67dc77f7fb0e82ac2ce45e3680c4f90bd68f638c86522996cdf03426084ac7",
-      "bytes": 6064
+      "sha256": "d1ac25511a936ff4250a48dbcefda363837d6bb9321b3cba73df99fa37270a75",
+      "bytes": 5993
     },
     {
       "name": "loop-me",
@@ -200,8 +200,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "38ac316635d244abfdc1526edec49596f9284b36595f5a212fc5983894b6094a",
-      "bytes": 2554
+      "sha256": "e44d1cc3e760fb86ac42964c2a5f1fcac511715db50fb375f3f7be814de1eaa7",
+      "bytes": 2522
     },
     {
       "name": "migrate-to-shoehorn",
@@ -213,8 +213,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "200c11163ecd56d908ec431154e4b452cd6afeb3de91e5b54434f543f0822201",
-      "bytes": 2913
+      "sha256": "de4da4c11d924fac79c924b2ee3d2db4a5cb98386eb490a599119463d036ae72",
+      "bytes": 2795
     },
     {
       "name": "prototype",
@@ -226,8 +226,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "f74ae01f4fc454d3a4ef21271920f1706e626271e715dda0559e489f45c792c3",
-      "bytes": 2957
+      "sha256": "714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3",
+      "bytes": 2931
     },
     {
       "name": "research",
@@ -239,8 +239,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "524b404b1ca373a8b00f63a64667ec4b0a61c3c9cf4e8f246e639be859bb6979",
-      "bytes": 806
+      "sha256": "985569f15739c713d6784887c3d186d4ef9ac85bec5ad9c068d25bf0739928e4",
+      "bytes": 794
     },
     {
       "name": "resolving-merge-conflicts",
@@ -252,8 +252,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "d97e7320010bbe7d32313c574acd47cec830d64edd59c956bd0ce2cba84e6ad7",
-      "bytes": 932
+      "sha256": "9d8114f8ef0b31f535a265fc05c364bd8cf2e2895a830040e06c22acb11f54b0",
+      "bytes": 918
     },
     {
       "name": "retro",
@@ -265,8 +265,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "42110f533f169026d037cf141b9f6c2752c6d914903be4758c38a68349e83e78",
-      "bytes": 4413
+      "sha256": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+      "bytes": 4369
     },
     {
       "name": "scaffold-exercises",
@@ -278,8 +278,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "de28db7a0954db55c11ba1e3cc0fd4c037bf0f5cb8313cb292e319bcce47f424",
-      "bytes": 3695
+      "sha256": "75f5c9d771606fb9762f16522efc954df11c324f87148d8ff069bce166257de9",
+      "bytes": 3589
     },
     {
       "name": "setup-matt-pocock-skills",
@@ -291,8 +291,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "86c0dee483fb69f7f5ecfcd010f6d7cbb30df2c47a9b059ac95f98380f383d86",
-      "bytes": 6957
+      "sha256": "2bcd89e97777cdb705914424e39c97d5db524c8eb4eafac8120778a07774f0ec",
+      "bytes": 6841
     },
     {
       "name": "setup-pre-commit",
@@ -304,8 +304,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "e069e6a23069ebdba946d4dea11e5d663c10640c6b14b55c4585c81b1a256ac9",
-      "bytes": 2349
+      "sha256": "c9819d7f1e3b198064edc1faa3154224ed67395e9f07f5d3cea4b67cf0a11a98",
+      "bytes": 2258
     },
     {
       "name": "setup-ts-deep-modules",
@@ -317,8 +317,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "3709fc7d62ea75cd7da1d6f21e33d58d758766fb8f5247a859687d7ed63c213e",
-      "bytes": 7648
+      "sha256": "29acca66ac99d4532e2a6f0370d8125d7cba1e87c9ac66573203c75189d3e6c7",
+      "bytes": 7546
     },
     {
       "name": "tdd",
@@ -330,8 +330,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "193b791c489d1640ccfb58d7cbd60fc9e059ef44632b3c92f208784cfe45ab78",
-      "bytes": 3587
+      "sha256": "cb01f66bebfaa25fa1f88e6b7e769cd9fd9f35b1120b8563749820738814c927",
+      "bytes": 3549
     },
     {
       "name": "teach",
@@ -343,8 +343,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "3377485cbb1d62782122c1cc8cab4ceb37d5457c0543889784f3d7d9ca359e04",
-      "bytes": 9646
+      "sha256": "a32df9dcdfc0c4fdc1c98e1ed3940c5f56b84c1aa90ff60346f32b8b53915b43",
+      "bytes": 9506
     },
     {
       "name": "to-questionnaire",
@@ -356,8 +356,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "77825120815c21400f82e2794faf342d1d1a4ab1493be3fe061857885d26b768",
-      "bytes": 2958
+      "sha256": "b5eb929842ee0e93d867c5e906d183d350f2f2d149eaeaa86967d94d8eda1d3b",
+      "bytes": 2904
     },
     {
       "name": "to-spec",
@@ -369,8 +369,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "c73a2250beac0479e384f5466e834bb54ce6e30b7f8705e9999ba840d9d59b36",
-      "bytes": 3118
+      "sha256": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+      "bytes": 3043
     },
     {
       "name": "to-tickets",
@@ -382,8 +382,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "8082bc6ef165027c5df3215763055f4a9668878bf27f25f582db78a14c3ed3c1",
-      "bytes": 5776
+      "sha256": "5c9fba69845c2519b9b35b9af42ae5142c21f8ca15ac2123dc2722002c8058ae",
+      "bytes": 5671
     },
     {
       "name": "triage",
@@ -395,8 +395,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "652c815971c2df925cee0f250ae2596f50fde19328305f3c55afd157a7f06fe6",
-      "bytes": 6669
+      "sha256": "623a2ed692bdc77d2090e2a3dea3b627dd722ad3bbaca0be83aada75292c8fc4",
+      "bytes": 6557
     },
     {
       "name": "wait-what",
@@ -408,8 +408,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "dcaa44ef972d5a3f9bda65a69442fb11e36eb41b7e9bb0dc8b63031ba0582fdb",
-      "bytes": 401
+      "sha256": "e3f44e3ccbc0e7b62f20ba70b295fc9c9f4aa3f96c77168faee1c71bacbf4215",
+      "bytes": 394
     },
     {
       "name": "wayfinder",
@@ -421,8 +421,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "3362fa360948f8526e88ebe8184f5402f9b5f4d9dced2ba0ed2721f64ae3de5a",
-      "bytes": 12036
+      "sha256": "fee6e1d0c50f0e736b4ef8a599060c959afae904c9a97d82c97f049fcc3aa0f1",
+      "bytes": 11908
     },
     {
       "name": "wizard",
@@ -434,8 +434,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "dbefb750eae07d9f8b05ab1084f6acfdda2752df2a6b577c46a505e2bc790164",
-      "bytes": 4167
+      "sha256": "bdf31d48211ea559878f95a4f344aeabf8d85897488ba564382bab0b000daac1",
+      "bytes": 4123
     },
     {
       "name": "writing-beats",
@@ -447,8 +447,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "b23f7851987dab7828c83d42df98090ccebff586b64908ce6a5e772440214621",
-      "bytes": 4922
+      "sha256": "a96abafa2372eede8267d770138b322d6125da8adaa7ccf0a5e08e4ee13ee71e",
+      "bytes": 4855
     },
     {
       "name": "writing-for-agents",
@@ -460,8 +460,8 @@
         "modelInvocable": true,
         "userInvocable": true
       },
-      "sha256": "1c0c4ebf2d221917591144f0ced4fe46dae13301cb3d6d93fc88ecf0dda6aed2",
-      "bytes": 10967
+      "sha256": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+      "bytes": 10886
     },
     {
       "name": "writing-fragments",
@@ -473,8 +473,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "3be6ffe9386ddd6de8b320c331295953995792fd65d0972aa2a28524ead73e90",
-      "bytes": 3637
+      "sha256": "298b0edd23df229183630de592ed8aa4289233560f2040691f6eb77caeaad4ea",
+      "bytes": 3558
     },
     {
       "name": "writing-shape",
@@ -486,8 +486,8 @@
         "modelInvocable": false,
         "userInvocable": true
       },
-      "sha256": "c13cbc364fbceefce654d9a4b0331113ff47efe90ce2523c2de23ecef63fefbd",
-      "bytes": 6001
+      "sha256": "f5e6c57bdd85178ace4a260c92f46da6b64ddee18215b461d875739c68976f72",
+      "bytes": 5922
     }
   ]
 }

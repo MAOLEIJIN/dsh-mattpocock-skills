@@ -6,25 +6,26 @@ Generated from `vendor/skills.manifest.json` by `node vendor/vendor-skills.mjs`.
 | --- | --- | --- | --- |
 | `dsh-workflow` | model + user | overlay | DSH invocation rules, workflow map, and platform equivalents. |
 | `ask-matt` | **user only** | engineering | Ask which skill or flow fits your situation. A router over the skills in this repo. |
+| `chief-of-staff` | **user only** | in-progress | Pursue a long-running goal in a single session by co-ordinating subagents. |
 | `claude-handoff` | **user only** | in-progress | Hand the current conversation off to a fresh background agent that picks up the work immediately. |
 | `code-review` | model + user | engineering | Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to "review since X". |
 | `codebase-design` | model + user | engineering | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary. |
 | `diagnosing-bugs` | model + user | engineering | Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow. |
-| `domain-modeling` | model + user | engineering | Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR. |
+| `domain-modeling` | model + user | engineering | Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR. |
 | `git-guardrails-claude-code` | model + user | misc | Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code. |
 | `grill-me` | **user only** | productivity | A relentless interview to sharpen a plan or design. |
 | `grill-with-docs` | **user only** | engineering | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go. |
 | `grilling` | model + user | productivity | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases. |
 | `handoff` | **user only** | productivity | Compact the current conversation into a handoff document for another agent to pick up. |
 | `implement` | **user only** | engineering | Implement a piece of work based on a spec or set of tickets. |
-| `implement-spec` | **user only** | in-progress | Implement a specification in code. |
+| `implement-spec` | **user only** | engineering | Implement the result of /to-spec and /to-tickets in code. |
 | `improve-codebase-architecture` | **user only** | engineering | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick. |
 | `loop-me` | **user only** | in-progress | Grill me about specs for the workflows I want to build, within this workspace. |
 | `migrate-to-shoehorn` | model + user | misc | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data. |
+| `pr` | model + user | engineering | Use when writing a PR body. |
 | `prototype` | model + user | engineering | Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like. |
 | `research` | model + user | engineering | Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent. |
-| `resolving-merge-conflicts` | model + user | engineering | Use when you need to resolve an in-progress git merge/rebase conflict. |
-| `retro` | **user only** | in-progress | Conduct a retrospective on a coding session. |
+| `retro` | **user only** | engineering | Conduct a retrospective on a coding session. |
 | `scaffold-exercises` | model + user | misc | Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section. |
 | `setup-matt-pocock-skills` | **user only** | engineering | Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills. |
 | `setup-pre-commit` | model + user | misc | Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing. |

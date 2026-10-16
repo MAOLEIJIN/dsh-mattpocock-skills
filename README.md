@@ -4,7 +4,7 @@
 
 ## What this package provides
 
-- All 37 skills currently present upstream, plus the `dsh-workflow` guide.
+- All 38 skills currently present upstream, plus the `dsh-workflow` guide.
 - A read-only `ctx.skills` provider with lazy loading and invocation-policy preservation.
 - DSH adaptations applied in memory while vendored upstream files remain byte-identical.
 - Exact-match validation: changed upstream wording fails instead of silently producing a partial adaptation.

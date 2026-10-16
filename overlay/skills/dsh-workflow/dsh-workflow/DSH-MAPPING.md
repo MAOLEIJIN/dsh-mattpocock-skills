@@ -20,7 +20,7 @@ would have changed behaviour, and this file is the short version of the same map
 | "ask the user" | the `ask_user_question` tool when you want a structured choice; plain prose otherwise |
 | TodoWrite-style checklists | the `todo_write` tool |
 | "the issue tracker" | unchanged: `docs/agents/issue-tracker.md` in the repo, GitHub/GitLab via `gh`/`glab`, or local markdown under `.scratch/` |
-| `CONTEXT.md`, `docs/adr/`, `.out-of-scope/`, `docs/agents/` | unchanged — these are repo conventions, not harness features |
+| `GLOSSARY.md`, `docs/adr/`, `.out-of-scope/`, `docs/agents/` | unchanged — these are repo conventions, not harness features |
 
 ## DSH features that fit these flows
 
@@ -35,6 +35,6 @@ would have changed behaviour, and this file is the short version of the same map
 ## What deliberately does *not* change
 
 - The skills' substance: what a good test is, the triage roles, the deepening vocabulary, the review axes.
-- Repo conventions: `CONTEXT.md`, `CONTEXT-MAP.md`, `docs/adr/`, `docs/agents/`, `.scratch/`, `.out-of-scope/`.
+- Repo conventions: `GLOSSARY.md`, `GLOSSARY-MAP.md`, `docs/adr/`, `docs/agents/`, `.scratch/`, `.out-of-scope/`.
 - The flow order and the phase-boundary tree, including which moves are cheap and which are lossy.
-- Upstream's choice to keep 20 skills user-started. DSH makes that a hard gate rather than a convention, which is why the rewrite list exists at all.
+- Upstream's choice to keep 23 skills user-started. DSH makes that a hard gate rather than a convention, which is why the rewrite list exists at all.

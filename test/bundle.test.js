@@ -144,11 +144,11 @@ async function main() {
     const bundle = provider()
     const candidates = await bundle.list()
     const byName = new Map(candidates.map((entry) => [entry.name, entry]))
-    const untouched = await bundle.get(byName.get('resolving-merge-conflicts'))
+    const untouched = await bundle.get(byName.get('migrate-to-shoehorn'))
     const onDisk = await readFile(join(untouched.resourceBase.path, 'SKILL.md'), 'utf8')
     assert.equal(untouched.content, splitFrontmatter(onDisk).body, 'an unadapted skill body was altered')
     const snapshot = bundle.diagnose()
-    assert.equal(snapshot.skills.find((skill) => skill.name === 'resolving-merge-conflicts').adapted, false)
+    assert.equal(snapshot.skills.find((skill) => skill.name === 'migrate-to-shoehorn').adapted, false)
     assert.equal(snapshot.skills.find((skill) => skill.name === 'ask-matt').adapted, true)
     assert.ok(snapshot.overlay.ruleCount >= 20, `overlay lost rules: ${snapshot.overlay.ruleCount}`)
     assert.ok(snapshot.overlay.adaptedFiles.length >= 10, 'the adapted file set shrank unexpectedly')
@@ -238,6 +238,7 @@ async function main() {
     const implement = candidates.find((entry) => entry.name === 'implement')
     assert.deepEqual(implement.invocation, { modelInvocable: true, userInvocable: true })
     const others = candidates.filter((entry) => entry.name !== 'implement')
+    // 16 = the 15 model-invocable vendored skills plus the dsh-workflow overlay guide.
     assert.equal(others.filter((entry) => entry.invocation.modelInvocable).length, 16)
   })
 
